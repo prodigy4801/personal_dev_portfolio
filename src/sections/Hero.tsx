@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '../components/Button';
-import { ArrowRight, ChevronDown, Download } from 'lucide-react';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { ArrowRight, ChevronDown } from 'lucide-react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { AnimatedBorderButton } from '../components/AnimatedBorderButton';
 import { HiDownload } from 'react-icons/hi';
 
