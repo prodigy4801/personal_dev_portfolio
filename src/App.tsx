@@ -4,7 +4,7 @@ import Navbar from './layout/Navbar';
 
 function App() {
   return (
-    <div className=' overflow-x-hidden min-h-screen container'>
+    <div className=' overflow-x-hidden min-h-screen'>
       <Navbar />
       <MainBody />
       <Footer />

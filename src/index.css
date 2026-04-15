@@ -6,12 +6,12 @@
 
   --color-card: #141a1f;
 
-  --colour-primary: #da291c;
-  --colour-primary-foreground: #ffffff;
-  --colour-secondary: #1f2830;
-  --colour-secondary-foreground: #da291c;
-  --colour-muted: #252e37;
-  --colour-muted-foreground: #7a8491;
+  --color-primary: #da291c;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #1f2830;
+  --color-secondary-foreground: #da291c;
+  --color-muted: #252e37;
+  --color-muted-foreground: #7a8491;
 
   --color-border: #242b32;
 
@@ -413,9 +413,9 @@
   }
 
   .animated-border:hover {
-    background-color: color-mix(in srgb, #26c4b8 15%, transparent);
+    background-color: color-mix(in srgb, #da291c 15%, transparent);
     backdrop-filter: blur(16px);
-    box-shadow: 0 0 20px color-mix(in srgb, #26c4b8 20%, transparent);
+    box-shadow: 0 0 20px color-mix(in srgb, #da291c 20%, transparent);
   }
 
   .timeline-glow {
