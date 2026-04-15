@@ -116,8 +116,8 @@ This portfolio reflects how I build real systems:
 ### Installation
 
 ```bash
-git clone https://github.com/your-username/your-portfolio.git
-cd your-portfolio
+git clone https://github.com/prodigy4801/personal_dev_portfolio.git
+cd personal_dev_portfolio
 npm install
 ```
 
