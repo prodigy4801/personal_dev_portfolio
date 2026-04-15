@@ -1,5 +1,3 @@
-import { Heart } from 'lucide-react';
-
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const socialLinks = [

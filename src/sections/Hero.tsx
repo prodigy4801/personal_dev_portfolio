@@ -51,7 +51,7 @@ const Hero = () => {
 
       {/* Green Dots */}
       <div className='absolute inset-0 overflow-hidden pointer-events-none'>
-        {[...Array(50)].map((_, i) => (
+        {[...Array(50)].map((_) => (
           <div
             className='absolute w-1 h-1 rounded-full opacity-60'
             style={{
