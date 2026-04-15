@@ -1,14 +1,18 @@
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Server } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
+import { AnimatedBorderButton } from '../components/AnimatedBorderButton';
+
+type TProjectType = 'fullstack' | 'frontend' | 'backend';
 
 type TProjectProps = {
   id: number;
   title: string;
   description: string;
-  image: string;
+  image?: string; // optional now
   tags: string[];
-  link: string;
+  link?: string;
   github?: string;
+  type: TProjectType;
 };
 
 const dataProjects: TProjectProps[] = [
@@ -21,6 +25,7 @@ const dataProjects: TProjectProps[] = [
     tags: ['Next JS', 'Typescript', 'Spring Boot Java', 'SQL'],
     link: 'https://usecontakt.com',
     github: '#',
+    type: 'fullstack',
   },
   {
     id: 2,
@@ -28,9 +33,10 @@ const dataProjects: TProjectProps[] = [
     description:
       'Cunningham Global Travels is a modern travel and car rental platform enabling users to discover destinations, browse rentals, and book travel services online. ',
     image: '/projects/cunningham_travels_img.png',
-    tags: ['Next.js', 'Typescript', 'Nest JS', 'Amadeus', 'Stripe', 'PostgreSQL', 'Tailwind'],
+    tags: ['Next.js', 'Typescript', 'ASP.NET', 'C#', 'Amadeus', 'Stripe', 'PostgreSQL', 'Tailwind'],
     link: 'https://www.cunninghamglobaltravels.com/',
     github: '#',
+    type: 'fullstack',
   },
   {
     id: 3,
@@ -38,18 +44,19 @@ const dataProjects: TProjectProps[] = [
     description:
       'Betaslides is a marketplace platform where professional designers outsource their designs work whether it be Presentation, Digital posters, Logo or Product Mockups.',
     image: '/projects/betaslides.png',
-    tags: ['ASP.NET', 'C#', 'Vue JS', 'GDSN', 'GLN', 'GTIN'],
+    tags: ['ASP.NET', 'C#', 'Hangfire', 'Vue JS', 'GDSN', 'GLN', 'GTIN'],
     link: 'https://betaslides.com/',
     github: '#',
+    type: 'fullstack',
   },
-  // {
-  //   title: 'Project Management Tool',
-  //   description: 'A collaborative workspace for teams with real-time updates, task tracking, and integrations.',
-  //   image: '/projects/project4.png',
-  //   tags: ['Next.js', 'Socket.io', 'MongoDB', 'Redis'],
-  //   link: '#',
-  //   github: '#',
-  // },
+  {
+    id: 4,
+    title: 'Enterprise API Services (GS1 Nigeria)',
+    description:
+      'Designed and developed secure, scalable API services for product identification and data exchange systems, supporting standards like GTIN and GLN. Focused on high availability, data integrity, and integration with third-party enterprise systems.',
+    tags: ['ASP.NET', 'C#', 'REST APIs', 'GDSN', 'GLN', 'GTIN', 'PostgreSQL'],
+    type: 'backend',
+  },
 ];
 
 const Projects = () => {
@@ -74,7 +81,7 @@ const Projects = () => {
           </p>
         </div>
         {/* Projects Grid */}
-        <div className='grid md:grid-cols-3 gap-8'>
+        <div className='grid md:grid-cols-2 gap-8'>
           {dataProjects.map((project) => (
             <div
               key={project.id}
@@ -83,34 +90,43 @@ const Projects = () => {
             >
               {/* Image */}
               <div className='relative overflow-hidden aspect-video'>
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-110'
-                />
-                <div
-                  className='absolute inset-0
+                {project.type !== 'backend' && project.image ? (
+                  <>
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-110'
+                    />
+                    <div
+                      className='absolute inset-0
                 bg-linear-to-t from-card via-card/50
                  to-transparent opacity-60'
-                />
-                {/* Overlay Links */}
-                <div className='absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
-                  <a
-                    href={project.link}
-                    className='p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                  >
-                    <ArrowUpRight className='w-5 h-5' />
-                  </a>
-                  <a
-                    href={project.github}
-                    className='p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all'
-                  >
-                    <FaGithub className='w-5 h-5' />
-                  </a>
-                </div>
+                    />
+                    <div className='absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
+                      <a
+                        href={project.link}
+                        className='p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
+                        <ArrowUpRight className='w-5 h-5' />
+                      </a>
+                      <a
+                        href={project.github}
+                        className='p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all'
+                      >
+                        <FaGithub className='w-5 h-5' />
+                      </a>
+                    </div>
+                  </>
+                ) : (
+                  <div className='w-full h-full flex flex-col items-center justify-center gap-4 bg-gradient-to-br from-primary/10 to-transparent'>
+                    <Server className='w-10 h-10 text-primary opacity-70' />
+                    <span className='text-sm text-muted-foreground'>Backend Service</span>
+                  </div>
+                )}
               </div>
+
               {/* Content */}
               <div className='p-6 space-y-4'>
                 <div className='flex items-start justify-between'>
@@ -123,11 +139,11 @@ const Projects = () => {
                   />
                 </div>
                 <p className='text-muted-foreground text-sm'>{project.description}</p>
-                <div className='flex flex-wrap gap-2'>
+                <div className='flex flex-wrap gap-1'>
                   {project.tags.map((tag, tagIdx) => (
                     <span
                       key={tagIdx}
-                      className='px-4 py-1.5 rounded-full bg-surface text-xs font-medium border border-border/50 text-muted-foreground hover:border-primary/50 hover:text-primary transition-all duration-300'
+                      className='px-2 py-1.5 rounded-full bg-surface text-xs font-medium border border-border/50 text-muted-foreground hover:border-primary/50 hover:text-primary transition-all duration-300'
                     >
                       {tag}
                     </span>
@@ -136,6 +152,13 @@ const Projects = () => {
               </div>
             </div>
           ))}
+        </div>
+        {/* View All CTA */}
+        <div className='text-center mt-12 animate-fade-in animation-delay-500'>
+          <AnimatedBorderButton>
+            View All Projects
+            <ArrowUpRight className='w-5 h-5' />
+          </AnimatedBorderButton>
         </div>
       </div>
     </section>

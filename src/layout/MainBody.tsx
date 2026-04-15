@@ -10,8 +10,8 @@ const MainBody = () => {
       <Hero />
       <About />
       <Projects />
-      {/* <Experience />
-      <Contact /> */}
+      <Experience />
+      <Contact />
     </main>
   );
 };

@@ -11,7 +11,7 @@ const dataNavLinks: TNavLinkProps[] = [
   { label: 'About', href: '#about' },
   { label: 'Project', href: '#projects' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Testimonial', href: '#testimonial' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 const Navbar = () => {
@@ -33,7 +33,7 @@ const Navbar = () => {
     >
       <nav className='container mx-auto px-6 flex items-center justify-between'>
         <a href='/' className='text-xl font-bold tracking-tight hover:text-primary'>
-          SE <span className=' text-primary'>.</span>
+          <span className='text-5xl'>🎒</span> SE
         </a>
         {/* Desktop Nav */}
         <div className='hidden md:flex items-center gap-1'>
