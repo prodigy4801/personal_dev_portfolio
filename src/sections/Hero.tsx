@@ -3,6 +3,7 @@ import { Button } from '../components/Button';
 import { ArrowRight, ChevronDown, Download } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { AnimatedBorderButton } from '../components/AnimatedBorderButton';
+import { HiDownload } from 'react-icons/hi';
 
 const dataSkils: string[] = [
   'ASP.Net',
@@ -35,9 +36,8 @@ type TSocialProps = {
   color: string;
 };
 const socials: TSocialProps[] = [
-  { icon: FaGithub, href: '#', color: 'hover:text-[#181717]' }, // GitHub black
-  { icon: FaLinkedin, href: '#', color: 'hover:text-[#0A66C2]' }, // LinkedIn blue
-  { icon: FaTwitter, href: '#', color: 'hover:text-[#1DA1F2]' }, // Twitter blue
+  { icon: FaGithub, href: 'https://github.com/prodigy4801', color: 'hover:text-[#181717]' }, // GitHub black
+  { icon: FaLinkedin, href: 'http://www.linkedin.com/in/samuel-esezobor', color: 'hover:text-[#0A66C2]' }, // LinkedIn blue
 ];
 
 const Hero = () => {
@@ -91,23 +91,26 @@ const Hero = () => {
             </div>
             {/* CTAs */}
             <div className='flex flex-wrap gap-4 animate-fade-in animation-delay-300'>
-              <Button size='default'>
-                Contact Me <ArrowRight className='w-5 h-5' />
+              <Button as='a' href='#contact' size='default'>
+                <div className='flex items-center justify-center mt-1.5'>
+                  Contact Me <ArrowRight className='w-5 h-5' />
+                </div>
               </Button>
-              <AnimatedBorderButton>
-                <Download className='w-5 h-5' />
-                Download CV
+              <AnimatedBorderButton as='a' href='/samuel_esezobor_resume.pdf' download>
+                Download CV <HiDownload />
               </AnimatedBorderButton>
             </div>
 
             {/* Social Links */}
             <div className='flex items-center gap-4 animate-fade-in animation-delay-400'>
-              <span className='text-sm text-muted-foreground'>Follow me: </span>
+              <span className='text-sm text-muted-foreground'>Link with me: </span>
               {socials.map((social) => (
                 <a
                   key={social.href}
                   href={social.href}
                   className={`p-2 rounded-full glass transition-all duration-300 ${social.color}`}
+                  target='_blank'
+                  rel='noopener noreferrer'
                 >
                   {<social.icon className='w-5 h-5' />}
                 </a>

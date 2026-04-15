@@ -51,7 +51,9 @@ const Navbar = () => {
         </div>
         {/* CTA Button */}
         <div className='hidden md:block'>
-          <Button size='sm'>Contact Me</Button>
+          <Button as='a' href='#contact'>
+            Contact Me
+          </Button>
         </div>
 
         {/* Mobile Menu Button */}
