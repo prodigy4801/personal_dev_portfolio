@@ -96,7 +96,7 @@ const Hero = () => {
                   Contact Me <ArrowRight className='w-5 h-5' />
                 </div>
               </Button>
-              <AnimatedBorderButton as='a' href='/samuel_esezobor_resume.pdf' download>
+              <AnimatedBorderButton as='a' href='/samuel_esezobor_resume_1.pdf' download>
                 Download CV <HiDownload />
               </AnimatedBorderButton>
             </div>
